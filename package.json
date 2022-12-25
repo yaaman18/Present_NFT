@@ -1,0 +1,33 @@
+{
+  "name": "contract_template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "yaaman18 <gucchiyama8551@hotmail.co.jp>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "yarn contract:lint && yarn interface:lint",
+    "contract:lint": "yarn workspace contract lint",
+    "contract:compile": "yarn workspace contract compile",
+    "contract:test": "yarn workspace contract test",
+    "interface:lint": "yarn workspace interface lint",
+    "interface:dev": "yarn workspace interface dev"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^1.0.2",
+    "@types/eslint": "^8.4.10",
+    "@types/prettier": "^2.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
+  },
+  "packageManager": "yarn@3.3.0"
+}
