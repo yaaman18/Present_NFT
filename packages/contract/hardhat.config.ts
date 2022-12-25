@@ -1,15 +1,17 @@
 import "@nomicfoundation/hardhat-toolbox";
+import * as dotenv from "dotenv";
 
-require("dotenv").config();
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
+
+dotenv.config();
 
 module.exports = {
   defaultNetwork: "matic",
   networks: {
     hardhat: {},
     polygon_mumbai: {
-      url: "https://rpc-mumbai.maticvigil.com",
+      url: "https://rpc-mainnet.maticvigil.com",
       accounts: [process.env.PRIVATE_KEY],
     },
   },
