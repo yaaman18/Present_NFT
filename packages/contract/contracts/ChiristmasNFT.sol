@@ -3,14 +3,14 @@ pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
-import "./Base64.sol";
+import "@openzeppelin/contracts/utils/Base64.sol";
 
 contract ChristmasNFT is ERC721("ChristmasNFT", "MeryChri") {
     uint256 public nextTokenId = 0;
 
     constructor() {}
 
-    function mint() extarnal {
+    function mint() public {
         uint256 tokenId = nextTokenId;
         nextTokenId++;
         _safeMint(_msgSender(), tokenId);
@@ -26,7 +26,7 @@ contract ChristmasNFT is ERC721("ChristmasNFT", "MeryChri") {
         string memory svg = getSVG(tokenID);
         bytes memory json = abi.encodePacked(
             '{"name": "Happy Christmas 2022! #',
-            Strings.toString(tokenId),
+            Strings.toString(tokenID),
             '", "description": "This is an NFT made for the 2022 Christmas Exchange. Contract address (0xBD262D0CBa0Dd4B0F9cAe8F60F46DEB4217e51Ae). We wish a merry Christmas!", "image": "data:image/svg+xml;base64,',
             Base64.encode(bytes(svg)),
             '"}'
